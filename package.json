@@ -1,0 +1,30 @@
+{
+  "name": "va_calc",
+  "version": "0.1.0",
+  "main": "./main.js",
+  "scripts": {
+    "start": "electron .",
+    "installer": "node installers/windows/createinstaller.js",
+    "package": "electron-packager ./ va-calc2 --platform=win32 --arch=x64 C:/Users/luke.pate/Desktop --version 0.30.2 --overwrite --icon=./app/img/app-icon.ico"
+  },
+  "devDependencies": {
+    "electron-packager": "^5.2.1",
+    "electron-prebuilt": "^0.30.3",
+    "electron-winstaller": "^2.6.4"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "nconf": "^0.7.2"
+  },
+  "description": "![Sound Machine](https://rawgithub.com/bojzi/sound-machine/master/sketch/sound-machine.png)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vetcompandpen/VA-Calc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vetcompandpen/VA-Calc/issues"
+  },
+  "homepage": "https://github.com/vetcompandpen/VA-Calc#readme"
+}

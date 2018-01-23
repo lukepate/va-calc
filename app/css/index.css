@@ -1,0 +1,129 @@
+html,
+body {
+    background: #cdc6c0;
+    height: 725px;
+    overflow: hidden;
+    width: 368px;
+    -webkit-app-region: drag;
+    -webkit-user-select: none;
+}
+
+button {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+}
+
+#main {
+    background: #cdc6c0;
+    border-bottom: 1px solid #73E2F7;
+    height: 700px;
+}
+
+
+#main h1 {
+    padding-right: 6px;
+    padding-top: 5px;
+    text-align: right;
+
+}
+
+.display{
+  text-align: center;
+  width: 100%;
+}
+.rating{
+  font-size: 100px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  width: 110%;
+  margin-bottom: 20px;
+  text-align: right;
+  border: 1px solid #afa8a2;
+  color: black;
+  background-color: transparent;
+}
+
+.button {
+  width: 100%;
+  background-color: red;
+
+}
+
+.buttons > div {
+    text-align: center;
+}
+
+.number-button {
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    height: 54px;
+    padding-top: 20px;
+    margin-top: 10px;
+    position: relative;
+    width: 100%;
+    box-shadow: 0 0 2px black, 0 10px 5px -5px #fff8f2 inset, 0 -10px 5px -8px #7d7670 inset, 0 0 2px 0 rgba(5, 0, 0, 0.5) inset;
+    -webkit-app-region: no-drag;
+}
+
+.number-button:hover {
+    box-shadow: 0 2px 0 #044D7F;
+    top: 2px;
+    box-shadow: 0 0 2px black, 0 10px 5px -5px #fff8f2 inset, 0 -10px 5px -8px #7d7670 inset, 0 0 2px 0 rgba(5, 0, 0, 0.5) inset;
+}
+
+.button-sound:hover > span {
+    top: -42px;
+}
+
+.button-sound:active {
+    box-shadow: 0 0 0 #044D7F;
+    top: 5px;
+}
+
+.button-sound:active > span {
+    top: -45px;
+}
+
+.button-icon {
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 50px;
+    left: -2px;
+    position: absolute;
+    top: -40px;
+    width: 30px;
+    -webkit-app-region: no-drag;
+    border: solid, 2px
+}
+
+.settings,
+.close {
+    cursor: pointer;
+    display: inline-block;
+    height: 32px;
+    position: absolute;
+    text-indent: -10000px;
+    top: 6px;
+    width: 32px;
+    z-index: 1;
+
+    -webkit-app-region: no-drag;
+}
+
+.settings {
+    background: transparent url('../img/settings.png') no-repeat 4px 4px;
+    background-size: 24px 24px;
+    right: 38px;
+}
+
+.close {
+    background: transparent url('../img/close.png') no-repeat 4px 4px;
+    background-size: 24px 24px;
+    right: 6px;
+}
