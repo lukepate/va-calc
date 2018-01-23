@@ -1,7 +1,6 @@
 $(function() {
     console.log( "ready!" );
-			var master = [],
-					mono   = [],
+			var mono   = [],
     	    upperL = [],
     	    upperR = [],
     	    lowerL = [],
@@ -48,25 +47,24 @@ $(function() {
 
 					if(upperL.length>0 && upperR.length>0){
 						var upper_totals = bilat_calc(upper);
-						master.push(upper_totals);
+						mono.push(upper_totals);
 						upperL = [];
 						upperR = [];
 					}else	if(lowerL.length>0 && lowerR.length>0){
 						var lower_totals = bilat_calc(lower);
-						master.push(lower_totals);
+						mono.push(lower_totals);
 						lowerL = [];
 						lowerR = [];
 					}else{
 
 					}
-					
-					console.log("master: " + master);
+
 					console.log("mono  : " + mono);
 					console.log("upperL: " + upperL);
 					console.log("upperR: " + upperR);
 					console.log("lowerL: " + lowerL);
 					console.log("lowerR: " + lowerR);
-					rating = monoCalc(master);
+					rating = monoCalc(mono);
 					console.log("rating: " + rating);
 					updateDisplay(rating);
 
@@ -74,7 +72,6 @@ $(function() {
         });
 
         	$(".btn-default").click(function(){
-						master=[];
 						mono=[];
         		upperL=[];
         		lowerL=[];
