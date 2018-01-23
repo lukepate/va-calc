@@ -57,13 +57,9 @@ $(function() {
 						lowerL = [];
 						lowerR = [];
 					}else{
-						if(upperL.length > 0){
-							master.push(upperL);
-							
-						}
-						master.push(mono);
-						mono = [];
+
 					}
+					
 					console.log("master: " + master);
 					console.log("mono  : " + mono);
 					console.log("upperL: " + upperL);
