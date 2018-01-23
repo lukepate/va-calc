@@ -47,6 +47,9 @@ button {
   background-color: transparent;
 }
 
+.on{
+  background-color: red;
+}
 .button {
   width: 100%;
   background-color: red;
