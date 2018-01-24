@@ -1,7 +1,6 @@
 html,
 body {
     background-color: rgba(58,70,85,1);
-
     height: 705px;
     overflow: hidden;
     width: 368px;
@@ -38,7 +37,7 @@ button {
   font-size: 100px;
   margin-bottom: 20px;
   box-sizing: border-box;
-  width: 95%;
+  width: 98%;
   text-align: right;
   margin-left: -26px;
   height: 200px;
@@ -90,7 +89,6 @@ button {
     height: 70px;
     padding-top: 10px;
     margin: 0px;
-    /* margin-top: 10px;  */
     font-size: 20px;
     position: relative;
     width: 100%;
