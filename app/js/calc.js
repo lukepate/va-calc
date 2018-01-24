@@ -1,5 +1,6 @@
 $(function() {
     console.log( "ready!" );
+
 			var mono   = [],
     	    upperL = [],
     	    upperR = [],
@@ -54,7 +55,7 @@ $(function() {
       		$("#ll").removeClass('on');
 					$("#lr").removeClass('on');
 
-					var rating = 0;				
+					var rating = 0;
 
 
 					for(var i = 0;i<obj.length;i++){
@@ -93,10 +94,10 @@ $(function() {
 				console.log("upperR: " + upperR);
 				console.log("lowerL: " + lowerL);
 				console.log("lowerR: " + lowerR);
-				
+
 				console.log("rating: " + rating);
 				updateDisplay(rating);
-					
+
 
 					console.log("====================================================");
         });
@@ -172,7 +173,7 @@ $(function() {
     disability = disability + (disability*.1);
     return Math.round(disability);
 	}
-	
+
 	function limbCheck(limbs){
 		limbs.sort();
 		for(var i=0; i<limbs.length; i++){
