@@ -1,6 +1,6 @@
 html,
 body {
-    background-color: rgba(41,49,59,1);  
+    background-color: rgba(41,49,59,1);
     overflow: hidden;
     -webkit-app-region: drag;
     -webkit-user-select: none;
@@ -36,6 +36,5 @@ input {
     top: 6px;
     width: 32px;
     z-index: 1;
-
     -webkit-app-region: no-drag;
 }

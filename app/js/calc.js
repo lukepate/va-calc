@@ -15,7 +15,16 @@ $(function() {
       //Clicks body part buttons
       $("#ul, #ur, #ll, #lr").click(function(){
           $(this).toggleClass('on');
+          if($("#ul").hasClass("on") && $("#ur").hasClass("on") || ($("#ll").hasClass("on") && $("#lr").hasClass("on"))){
+              $(".bi-message").show()
+            console.log('worked')
+          }else{
+            $(".bi-message").hide()
+          }
+
+
       });
+
 
       //Clicks value buttons
       $(".valbtn").click(function(){
