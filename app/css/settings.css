@@ -1,9 +1,10 @@
 html,
 body {
-    background: #044D7F;
+    background-color: rgba(41,49,59,1);  
     overflow: hidden;
     -webkit-app-region: drag;
     -webkit-user-select: none;
+    color: black;
 }
 
 #settings-screen {
