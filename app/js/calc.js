@@ -21,9 +21,10 @@ $(function() {
           }else{
             $(".bi-message").hide()
           }
-
-
       });
+
+
+
 
 
       //Clicks value buttons
@@ -122,6 +123,7 @@ $(function() {
         		$("#rating").val("0");
         		$("label[for = testing]").text(0);
         		$("#ul, #ur, #ll, #lr").removeClass('on');
+            $(".bi-message").hide()
 
             var rating = 0;
             updateDisplay(rating);

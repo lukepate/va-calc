@@ -95,6 +95,10 @@ button {
     border: solid 1px rgba(58,70,85,1);
     background-color: rgba(41,49,59,1);
     -webkit-app-region: no-drag;
+    -webkit-transition: background-color 0.3s ease-out;
+    -moz-transition: background-color 0.3s ease-out;
+    -o-transition: background-color 0.3s ease-out;
+    transition: background-color 0.3s ease-out;
 }
 .number{
   width: 200px!important;
@@ -111,15 +115,16 @@ button {
   margin-left: -20px;
   margin-bottom: 0px;
   margin-top: -20px;
-  -webkit-transition: background-color 0.3s ease-out;
-  -moz-transition: background-color 0.3s ease-out;
-  -o-transition: background-color 0.3s ease-out;
-  transition: background-color 0.3s ease-out;
+  -webkit-transition: background-color 0.1s ease-out;
+  -moz-transition: background-color 0.1s ease-out;
+  -o-transition: background-color 0.1s ease-out;
+  transition: background-color 0.1s ease-out;
 }
 
 .number-button:hover {
     bottom: 1px;
     color: white!important;
+
 }
 
 .button-icon {
