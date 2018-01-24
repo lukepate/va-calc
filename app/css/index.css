@@ -74,6 +74,10 @@ button {
 }
 .limbs{
   color: #687585!important;
+  -webkit-transition: background-color 0.3s ease-out;
+  -moz-transition: background-color 0.3s ease-out;
+  -o-transition: background-color 0.3s ease-out;
+  transition: background-color 0.3s ease-out;
 }
 .clear{
   color: #A11B18!important;
@@ -107,6 +111,10 @@ button {
   margin-left: -20px;
   margin-bottom: 0px;
   margin-top: -20px;
+  -webkit-transition: background-color 0.3s ease-out;
+  -moz-transition: background-color 0.3s ease-out;
+  -o-transition: background-color 0.3s ease-out;
+  transition: background-color 0.3s ease-out;
 }
 
 .number-button:hover {
