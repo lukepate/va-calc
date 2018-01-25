@@ -1,129 +1,141 @@
 $(function() {
     console.log( "ready!" );
 
-			var mono   = [],
-    	    upperL = [],
-    	    upperR = [],
-    	    lowerL = [],
-					lowerR = [],
-					obj = [];
-					function Person(limb, value){
-						this.limb = limb;
-						this.value = value;
-					}
+	var mono   = [],
+	upperL = [],
+	upperR = [],
+	lowerL = [],
+	lowerR = [],
+	obj = [];
+	var bilateralFixed;
 
-      //Clicks body part buttons
-      $("#ul, #ur, #ll, #lr").click(function(){
-          $(this).toggleClass('on');
-          if($("#ul").hasClass("on") && $("#ur").hasClass("on") || ($("#ll").hasClass("on") && $("#lr").hasClass("on"))){
-              $(".bi-message").show()
-            console.log('worked')
-          }else{
-            $(".bi-message").hide()
-          }
-      });
+	function Person(limb, value){
+		this.limb = limb;
+		this.value = value;
+	}
+
+	//Clicks body part buttons
+	$("#ul, #ur, #ll, #lr").click(function(){
+		$(this).toggleClass('on');
+		if($("#ul").hasClass("on") && $("#ur").hasClass("on") || ($("#ll").hasClass("on") && $("#lr").hasClass("on"))){
+			$(".bi-message").show()
+		console.log('worked')
+		}else{
+		$(".bi-message").hide()
+		}
+	});
 
 
 
 
 
       //Clicks value buttons
-      $(".valbtn").click(function(){
+    $(".valbtn").click(function(){
 
-				if(!$("#ul").hasClass('on') && !$("#ur").hasClass('on') && !$("#ll").hasClass('on') && !$("#lr").hasClass('on')){
-					var limbObj = new Person("m",$(this).val());
+		if(!$("#ul").hasClass('on') && !$("#ur").hasClass('on') && !$("#ll").hasClass('on') && !$("#lr").hasClass('on')){
+			var limbObj = new Person("m",$(this).val());
+			obj.push(limbObj);
+			mono.push($(this).val());
+		}else{
+			if($("#ul").hasClass('on')){
+				var limbObj = new Person("ul",$(this).val());
+				obj.push(limbObj);
+				upperL.push($(this).val());
+			}
+
+			if($("#ur").hasClass('on')){
+				var limbObj = new Person("ur",$(this).val());
+				obj.push(limbObj);
+				upperR.push($(this).val());
+			}
+
+			if($("#ll").hasClass('on')){
+				var limbObj = new Person("ll",$(this).val());
+				obj.push(limbObj);
+				lowerL.push($(this).val());
+			}
+
+			if($("#lr").hasClass('on')){
+				var limbObj = new Person("lr",$(this).val());
+				obj.push(limbObj);
+				lowerR.push($(this).val());
+			}
+	}
+
+        $("#ul").removeClass('on');
+      	$("#ur").removeClass('on');
+      	$("#ll").removeClass('on');
+		$("#lr").removeClass('on');
+
+		var rating = 0;
+
+
+		for(var i = 0;i<obj.length;i++){
+			console.log(obj[i].limb + ": " + obj[i].value);
+			for(var x = i+1; x <obj.length;x++){
+				if(obj[i].limb == "ul" && obj[x].limb == "ur" || obj[i].limb == "ur" && obj[x].limb == "ul"){
+					console.log(obj[x].limb + ": " + obj[x].value);
+					console.log(x);
+					console.log(i);
+					console.log(x+1);
+					var matches = [obj[i].value, obj[x].value];
+					rating = bilat_calc(matches);
+					var limbObj = new Person("m",rating);
 					obj.push(limbObj);
-					mono.push($(this).val());
-				}else{
-					if($("#ul").hasClass('on')){
-						var limbObj = new Person("ul",$(this).val());
-						obj.push(limbObj);
-						upperL.push($(this).val());
-      		}
-
-      		if($("#ur").hasClass('on')){
-						var limbObj = new Person("ur",$(this).val());
-						obj.push(limbObj);
-						upperR.push($(this).val());
-      		}
-
-      		if($("#ll").hasClass('on')){
-						var limbObj = new Person("ll",$(this).val());
-						obj.push(limbObj);
-						lowerL.push($(this).val());
-      		}
-
-          if($("#lr").hasClass('on')){
-						var limbObj = new Person("lr",$(this).val());
-						obj.push(limbObj);
-						lowerR.push($(this).val());
-          }
+					//obj.splice(obj[x],1);
+					obj[x].value = 0;
+					//obj.splice(obj[i],1);
+					obj[i].value = 0;
+					console.log(obj[x].value);
+					console.log(obj[i].value);
+					console.log(obj[obj.length-1].value);
 				}
+				if(obj[i].limb == "ll" && obj[x].limb == "lr" || obj[i].limb == "lr" && obj[x].limb == "ll"){
+					var matches = [obj[i].value, obj[x].value];
+					rating = bilat_calc(matches);
+					var limbObj = new Person("m",rating);
+					obj.push(limbObj);
+					//obj.splice(obj[x],1);
+					obj[x].value = 0;
+					//obj.splice(obj[i],1);
+					obj[i].value = 0;
+				}
+			}
+		}
 
-          $("#ul").removeClass('on');
-      		$("#ur").removeClass('on');
-      		$("#ll").removeClass('on');
-					$("#lr").removeClass('on');
+		var master = [];
+		for(var i = 0;i<obj.length;i++){
+			master.push(obj[i].value);
+			console.log("Master: " + obj[i].limb + ": " + obj[i].value);
+		}
 
-					var rating = 0;
+		rating = monoCalc(master);
 
+		console.log("mono  : " + mono);
+		console.log("upperL: " + upperL);
+		console.log("upperR: " + upperR);
+		console.log("lowerL: " + lowerL);
+		console.log("lowerR: " + lowerR);
 
-					for(var i = 0;i<obj.length;i++){
-						console.log(obj[i].limb + ": " + obj[i].value);
-						for(var x = i+1; x <obj.length;x++){
-							if(obj[i].limb == "ul" && obj[x].limb == "ur" || obj[i].limb == "ur" && obj[x].limb == "ul"){
-								console.log("W0w");
-								var matches = [obj[i].value, obj[x].value];
-								rating = bilat_calc(matches);
-								var limbObj = new Person("m",rating);
-								obj.push(limbObj);
-								obj.splice(obj[x],1);
-								obj.splice(obj[i],1);
-							}
-							if(obj[i].limb == "ll" && obj[x].limb == "lr" || obj[i].limb == "lr" && obj[x].limb == "ll"){
-								console.log("W0w");
-								var matches = [obj[i].value, obj[x].value];
-								rating = bilat_calc(matches);
-								var limbObj = new Person("m",rating);
-								obj.push(limbObj);
-								obj.splice(obj[x],1);
-								obj.splice(obj[i],1);
-							}
-						}
-					}
-					var master = [];
-					for(var i = 0;i<obj.length;i++){
-						master.push(obj[i].value);
-						console.log(obj[i].limb + ": " + obj[i].value);
-					}
-
-					rating = monoCalc(master);
-
-				console.log("mono  : " + mono);
-				console.log("upperL: " + upperL);
-				console.log("upperR: " + upperR);
-				console.log("lowerL: " + lowerL);
-				console.log("lowerR: " + lowerR);
-
-				console.log("rating: " + rating);
-				updateDisplay(rating);
+		console.log("rating: " + rating);
+		updateDisplay(rating);
 
 
-					console.log("====================================================");
-        });
+			console.log("====================================================");
+	});
 
-        	$(".btn-default").click(function(){
-						mono=[];
-        		upperL=[];
-        		lowerL=[];
-        		upperR=[];
-						lowerR=[];
-						master = [];
-						obj = [];
-        		$("#rating").val("0");
-        		$("label[for = testing]").text(0);
-        		$("#ul, #ur, #ll, #lr").removeClass('on');
-            $(".bi-message").hide()
+		$(".btn-default").click(function(){
+					mono=[];
+			upperL=[];
+			lowerL=[];
+			upperR=[];
+					lowerR=[];
+					master = [];
+					obj = [];
+			$("#rating").val("0");
+			$("label[for = testing]").text(0);
+			$("#ul, #ur, #ll, #lr").removeClass('on');
+		$(".bi-message").hide()
 
             var rating = 0;
             updateDisplay(rating);
@@ -180,8 +192,12 @@ $(function() {
       x++;
     }
 
-    disability = 100 - efficiency;
-    disability = disability + (disability*.1);
+	
+	disability = 100 - efficiency;
+	var bilateral = disability*.1;
+	bilateralFixed = bilateral.toFixed(1);
+	disability = disability + (bilateral);
+	console.log("Bilateral Factor: " + bilateralFixed);
     return Math.round(disability);
 	}
 
