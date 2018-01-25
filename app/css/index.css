@@ -29,6 +29,7 @@ button {
 .display{
   text-align: center;
   width: 120%;
+  padding-bottom: 20px;
 }
 .rating{
   font-size: 100px;
@@ -41,7 +42,7 @@ button {
   color: white;
   margin-top: 0px;
   padding-top: 60px;
-  padding-left: 140px;
+  padding-left: 40px;
 }
 
 .button {
@@ -110,7 +111,6 @@ button {
 }
 .bi-message{
   color: #687585!important;
-  display: none;
   position: relative;
   margin-left: -20px;
   margin-bottom: 0px;

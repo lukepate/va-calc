@@ -8,6 +8,7 @@ $(function() {
 	lowerR = [],
 	obj = [];
 	var bilateralFixed;
+  var biEmpty = "";
 
 	function Person(limb, value){
 		this.limb = limb;
@@ -17,17 +18,7 @@ $(function() {
 	//Clicks body part buttons
 	$("#ul, #ur, #ll, #lr").click(function(){
 		$(this).toggleClass('on');
-		if($("#ul").hasClass("on") && $("#ur").hasClass("on") || ($("#ll").hasClass("on") && $("#lr").hasClass("on"))){
-			$(".bi-message").show()
-		console.log('worked')
-		}else{
-		$(".bi-message").hide()
-		}
 	});
-
-
-
-
 
       //Clicks value buttons
     $(".valbtn").click(function(){
@@ -124,23 +115,24 @@ $(function() {
 			console.log("====================================================");
 	});
 
-		$(".btn-default").click(function(){
-					mono=[];
+		$(".btn-default").click(function(event ){
+      event.isDefaultPrevented()
+			mono=[];
 			upperL=[];
 			lowerL=[];
 			upperR=[];
-					lowerR=[];
-					master = [];
-					obj = [];
+			lowerR=[];
+			master = [];
+			obj = [];
+      bilateralFixed;
+
 			$("#rating").val("0");
 			$("label[for = testing]").text(0);
 			$("#ul, #ur, #ll, #lr").removeClass('on');
-		$(".bi-message").hide()
 
-            var rating = 0;
-            updateDisplay(rating);
-
-        	});
+      var rating = 0;
+      updateDisplay(rating);
+    });
 
 });
 
@@ -178,8 +170,10 @@ $(function() {
 	}
 
   function updateDisplay(rating){
+
       var rate = rating + "%"
       $("p.rating").text(rate);
+
   }
 
   function bilat_calc(rating_array){
@@ -192,7 +186,7 @@ $(function() {
       x++;
     }
 
-	
+
 	disability = 100 - efficiency;
 	var bilateral = disability*.1;
 	bilateralFixed = bilateral.toFixed(1);
