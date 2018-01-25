@@ -11,15 +11,17 @@ getInstallerConfig()
 
 function getInstallerConfig () {
   console.log('creating windows installer')
-  const rootPath = path.join('./')
-  const outPath = path.join(rootPath)
+  //const rootPath = path.join('./')
+  const outPath = './'
 
   return Promise.resolve({
     appDirectory: path.join(outPath, 'va-calc2-win32-x64'),
-    authors: 'Luke Pate',
+    authors: 'Team and Tech',
+    icon: path.join(outPath, 'assets/favicon.ico'),
     noMsi: true,
     outputDirectory: path.join(outPath, 'windows-installer'),
     exe: 'va-calc2.exe',
-    description: 'Test'
+    description: 'VA Disability Calculator',
+    setupExe: 'va-calc-installer.exe'
   })
 }
