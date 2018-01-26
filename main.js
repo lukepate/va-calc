@@ -9,6 +9,7 @@ var ipc = require('ipc');
 var mainWindow = null;
 var settingsWindow = null;
 
+// begins and defines window for electron
 app.on('ready', function() {
     if (!configuration.readSettings('shortcutKeys')) {
         configuration.saveSettings('shortcutKeys', ['ctrl', 'shift']);
@@ -26,6 +27,7 @@ app.on('ready', function() {
     setGlobalShortcuts();
 });
 
+// shortcuts
 function setGlobalShortcuts() {
     globalShortcut.unregisterAll();
 
@@ -77,11 +79,12 @@ function setGlobalShortcuts() {
 
 }
 
+// close icon configure
 ipc.on('close-main-window', function () {
     app.quit();
 });
 
-
+// settings icon configure
 ipc.on('open-settings-window', function () {
     if (settingsWindow) {
         return;
@@ -101,12 +104,14 @@ ipc.on('open-settings-window', function () {
     });
 });
 
+// close icon configure
 ipc.on('close-settings-window', function () {
     if (settingsWindow) {
         settingsWindow.close();
     }
 });
 
+//sets global shortcuts
 ipc.on('set-global-shortcuts', function () {
     setGlobalShortcuts();
 });
