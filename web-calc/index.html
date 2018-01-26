@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VA Calculator</title>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="css/index.css" rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="settings">Settings</div>
+<div class="close">Close</div>
+<div id="main" class="container-fluid">
+    <div class="row display">
+        <div class="col-xs-12">
+            <p class="rating"> 0%</p>
+            <p class="bi-message">  </p>
+        </div>
+    </div>
+
+
+
+    <div class="button-row">
+        <div class="button2">
+            <button class="number-button limbs" id="ul" >Left Arm</button>
+        </div>
+        <div class="button2">
+            <button class="number-button limbs"  id="ur">Right Arm</button>
+        </div>
+    </div>
+    <div class="button-row">
+        <div class="button2">
+             <button class="number-button limbs" id="ll">Left Leg</button>
+        </div>
+        <div class="button2">
+              <button class="number-button limbs" id="lr">Right Leg</button>
+        </div>
+    </div>
+
+    <div class="button-row">
+        <div class="button">
+            <button class="number-button  valbtn" id="one"  value="10">10</button>
+        </div>
+        <div class="button">
+              <button class="number-button  valbtn"  id="two"  value="20">20</button>
+        </div>
+        <div class="button">
+              <button class="number-button  valbtn"  id="three" value="30">30</button>
+        </div>
+    </div>
+
+    <div class="button-row">
+        <div class="button">
+              <button class="number-button  valbtn"  id="four" value="40">40</button>
+        </div>
+        <div class="button">
+              <button class="number-button  valbtn"  id="five" value="50">50</button>
+        </div>
+        <div class="button">
+              <button class="number-button  valbtn"  id="six" value="60">60</button>
+        </div>
+    </div>
+
+    <div class="button-row">
+          <div class="button">
+              <button class="number-button  valbtn"  id="seven" value="70">70</button>
+          </div>
+          <div class="button">
+              <button class="number-button  valbtn"  id="eight" value="80">80</button>
+          </div>
+          <div class="button">
+              <button class="number-button  valbtn"  id="nine" value="90">90</button>
+          </div>
+    </div>
+    <div class="button-row">
+        <div class="button3">
+              <button class="number-button  btn-default clear" id="cc" value="0">Clear</button>
+      </div>
+    </div>
+</div>
+<script>window.$ = window.jQuery = require('jquery');</script>
+
+<script src="js/calc.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
