@@ -17,7 +17,7 @@ function getInstallerConfig () {
   return Promise.resolve({
     appDirectory: path.join(outPath, 'va-calc2-win32-x64'),
     authors: 'Team and Tech',
-    icon: path.join(outPath, 'assets/favicon.ico'),
+    iconUrl: 'file:///C:/xampp/htdocs/luke_calc/assets/favicon.ico',
     noMsi: true,
     outputDirectory: path.join(outPath, 'windows-installer'),
     exe: 'va-calc2.exe',
