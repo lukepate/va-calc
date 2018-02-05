@@ -113,7 +113,7 @@ button {
   color: #687585!important;
   position: relative;
   margin-left: -20px;
-  margin-bottom: 0px;
+  margin-bottom: -20px;
   margin-top: -20px;
   -webkit-transition: background-color 0.1s ease-out;
   -moz-transition: background-color 0.1s ease-out;

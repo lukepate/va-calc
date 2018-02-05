@@ -11,40 +11,57 @@ $(function() {
 		lower = false;
 
 	//Clicks body part buttons
-	$("#ul, #ur, #ll, #lr").click(function(){
-		$(this).toggleClass('on');
+	$("#ul").click(function(){
+			$(this).toggleClass('on');
+			$("#ll").removeClass('on');
+			$("#lr").removeClass('on');
+	});
+	$("#ur").click(function(){
+			$(this).toggleClass('on');
+			$("#ll").removeClass('on');
+			$("#lr").removeClass('on');
+	});
+	$("#ll").click(function(){
+			$(this).toggleClass('on');
+			$("#ul").removeClass('on');
+			$("#ur").removeClass('on');
+	});
+	$("#lr").click(function(){
+			$(this).toggleClass('on');
+			$("#ul").removeClass('on');
+			$("#ur").removeClass('on');
 	});
 
-      //Clicks value buttons
-    $(".valbtn").click(function(){
+
+  $(".valbtn").click(function(){
 
 		if(!$("#ul").hasClass('on') && !$("#ur").hasClass('on') && !$("#ll").hasClass('on') && !$("#lr").hasClass('on')){
 			//Push value into mono - no bilat
 			mono.push($(this).val());
 		}else{
-			if($("#ul").hasClass('on')){
+			if($("#ul").hasClass('on') || $("#ur").hasClass('on')){
 				//Push value into upperAll, +1 to upperL
 				upperAll.push($(this).val());
-				upperL++;
+				if($("#ul").hasClass('on')){
+					upperL++
+				}
+				if($("#ur").hasClass('on')){
+					upperR++
+				}
 			}
 
-			if($("#ur").hasClass('on')){
-				//Push value into upperAll, +1 to upperR
-				upperAll.push($(this).val());
-				upperR++;
-			}
-
-			if($("#ll").hasClass('on')){
+			if($("#ll").hasClass('on') || $("#lr").hasClass('on')){
 				//Push value into lowerAll, +1 to lowerL
 				lowerAll.push($(this).val());
-				lowerL++;
+				if($("#ll").hasClass('on')){
+					lowerL++
+				}
+				if($("#lr").hasClass('on')){
+					lowerR++
+				}
 			}
 
-			if($("#lr").hasClass('on')){
-				//Push value into lowerAll, +1 to lowerR
-				lowerAll.push($(this).val());
-				lowerR++;
-			}
+
 	}
 
         $("#ul").removeClass('on');
@@ -53,7 +70,7 @@ $(function() {
 		$("#lr").removeClass('on');
 
 		var rating = 0;
-		
+
 		// Make Booleans for Bilats true if there is match
 		if(upperL > 0 && upperR > 0){
 			upper = true;
@@ -88,6 +105,7 @@ $(function() {
 		$("#rating").val("0");
 		$("label[for = testing]").text(0);
 		$("#ul, #ur, #ll, #lr").removeClass('on');
+		$(".bi-message").text(" ");
 
       	var rating = 0;
       	updateDisplay(rating);
@@ -130,25 +148,27 @@ $(function() {
 		if(lowerAll.length > 0 && lower == false){
 			tempRatings = tempRatings.concat(lowerAll);
 		}
-		
+
 		tempRatings.sort(function(a,b){return b-a});
 		totalRating = monoCalc(tempRatings, totalRating);
 
 		return totalRating;
 	}
-	
+
 	// Used to calculate bilateral ratings
 	function calcBilats(bilats, currentRate){
 		var rating = currentRate;
-		
+
 		rating = monoCalc(bilats, rating);
 
 		var diff = rating - currentRate;
 		var diff = (diff * .1).toFixed(1);
+		$(".bi-message").text("*" + diff + "% Bilateral Factor applied");
+
 		rating = (parseFloat(rating) + parseFloat(diff)).toFixed(0);
 
 		return rating;
-	
+
 	}
 
 	// Used to calculate total ratings that do not include bilats
